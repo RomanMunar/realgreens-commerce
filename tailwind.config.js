@@ -12,6 +12,9 @@ module.exports = {
       fontFamily: {
         sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
+      zIndex: {
+        1: "1",
+      },
     },
   },
   variants: {
