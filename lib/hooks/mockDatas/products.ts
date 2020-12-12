@@ -165,9 +165,99 @@ const products: IProduct[] = [
     dimension: [80, 250],
     description:
       "limes are loaded with nutrients, they may help boost your immunity, reduce heart disease risk factors, prevent kidney stones, aid iron absorption, and promote healthy skin.Limes are high in active compounds that function as antioxidants in your body, including flavonoids, limonoids, kaempferol, quercetin, and ascorbic acid, removes stress induced damage to skin",
-    _id: 3123,
+    _id: 6,
     image: "lime",
-    images: ["lime_1", "lime_2", "lime_3"],
+    images: ["lime", "lime_1", "lime_2", "lime_3"],
+    like_count: 89,
+    weight: 200,
+    discount: 33,
+    variations: [{ variant: "Weight", values: ["250g", "500g", "1kg"] }],
+    rating: [
+      {
+        author: { name: "B.T Lui", portrait: "avatar", user_id: 3123 },
+        description: "Tastes Really great, will definitely buy again",
+        rating_star: 5,
+      },
+      {
+        author: { name: "O.M Yang", portrait: "avatar", user_id: 3123 },
+        description:
+          "Wow, this tastes 10x better than what I've before on other brands",
+        rating_star: 4,
+      },
+    ],
+  },
+  {
+    name: "Chicken Drumstick",
+    price: 230,
+    stock: 31,
+    sold: 16,
+    category: "vegetables",
+    dimension: [80, 250],
+    description:
+      "Chickens are prevalent throughout the cuisine of cultures around the world, and their meat has been variously adapted to regional tastes. Chickesn are also versatile as it can be prepared in a vast range of ways, including baking, grilling,",
+    _id: 7,
+    image: "chicken",
+    images: ["chicken", "chicken_1", "chicken_2"],
+    like_count: 89,
+    weight: 200,
+    discount: 33,
+    variations: [{ variant: "Weight", values: ["250g", "500g", "1kg"] }],
+    rating: [
+      {
+        author: { name: "B.T Lui", portrait: "avatar", user_id: 3123 },
+        description: "Tastes Really great, will definitely buy again",
+        rating_star: 5,
+      },
+      {
+        author: { name: "O.M Yang", portrait: "avatar", user_id: 3123 },
+        description:
+          "Wow, this tastes 10x better than what I've before on other brands",
+        rating_star: 4,
+      },
+    ],
+  },
+  {
+    name: "Pork Liempo",
+    price: 250,
+    stock: 31,
+    sold: 16,
+    category: "vegetables",
+    dimension: [80, 250],
+    description:
+      "Chickens are prevalent throughout the cuisine of cultures around the world, and their meat has been variously adapted to regional tastes. Chickesn are also versatile as it can be prepared in a vast range of ways, including baking, grilling,",
+    _id: 8,
+    image: "pork",
+    images: ["pork", "pork_1", "pork_2", "pork_3"],
+    like_count: 89,
+    weight: 200,
+    discount: 33,
+    variations: [{ variant: "Weight", values: ["250g", "500g", "1kg"] }],
+    rating: [
+      {
+        author: { name: "B.T Lui", portrait: "avatar", user_id: 3123 },
+        description: "Tastes Really great, will definitely buy again",
+        rating_star: 5,
+      },
+      {
+        author: { name: "O.M Yang", portrait: "avatar", user_id: 3123 },
+        description:
+          "Wow, this tastes 10x better than what I've before on other brands",
+        rating_star: 4,
+      },
+    ],
+  },
+  {
+    name: "Fish",
+    price: 230,
+    stock: 31,
+    sold: 16,
+    category: "vegetables",
+    dimension: [80, 250],
+    description:
+      "Chickens are prevalent throughout the cuisine of cultures around the world, and their meat has been variously adapted to regional tastes. Chickesn are also versatile as it can be prepared in a vast range of ways, including baking, grilling,",
+    _id: 9,
+    image: "fish",
+    images: ["fish", "fish_1"],
     like_count: 89,
     weight: 200,
     discount: 33,
