@@ -1,5 +1,5 @@
 import { useUI } from "../../lib/useUI"
-import { Avatar, Popover } from "../core"
+import { AvatarButton, Popover } from "../core"
 import NextLink from "next/link"
 import { Close, Cart, ShoppingBag } from "../icons"
 import cx from "clsx"
@@ -15,6 +15,7 @@ const RightNav = ({ locale, invert = false }: Props) => {
     <div className="flex items-start justify-between space-x-3">
       <div className="flex items-center space-x-4">
         <Popover
+          aria-label="Locale picker"
           invert={invert}
           text={locale === "en-PH" ? "🇵🇭 en-PH" : "🇬🇧 en-US"}
         >
@@ -23,7 +24,7 @@ const RightNav = ({ locale, invert = false }: Props) => {
           </span>
         </Popover>
         <button
-          aria-label="Close panel"
+          aria-label="Open Cart"
           className={cx(
             "transition ease-in-out duration-150",
             invert
@@ -39,7 +40,7 @@ const RightNav = ({ locale, invert = false }: Props) => {
         </button>
         <NextLink href="/wishlist">
           <button
-            aria-label="Close panel"
+            aria-label="To wishlist page"
             className={cx(
               "transition ease-in-out duration-150",
               invert
@@ -50,16 +51,12 @@ const RightNav = ({ locale, invert = false }: Props) => {
             <ShoppingBag className="cursor-pointer inline-flex w-6 h-6" />
           </button>
         </NextLink>
-        <button
-          className="inline-flex"
+        <AvatarButton
           onClick={() => {
             setModalView("LOGIN_VIEW")
             openModal()
           }}
-          aria-label="Your Profile"
-        >
-          <Avatar />
-        </button>
+        />
       </div>
     </div>
   )

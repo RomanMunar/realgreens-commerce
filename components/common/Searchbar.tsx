@@ -9,17 +9,25 @@ import { useState } from "react"
 import { IProduct } from "../../interfaces/Product"
 import products from "../../lib/hooks/mockDatas/products"
 import { useDebounce } from "../../lib/hooks"
+import { useRouter } from "next/router"
 import "@reach/combobox/styles.css"
+import NextLink from "next/link"
 
-interface Props {}
-
-const Searchbar = (props: Props) => {
+const Searchbar = () => {
   const [searchResults, setSearchResults] = useState<IProduct[]>([])
   const timeoutFn = (results: IProduct[]) => setSearchResults(results)
   const [isReady, cancel] = useDebounce(timeoutFn, 5000)
+  const { push } = useRouter()
+  const onSearch = (value: string) => {
+    if (value) {
+      const product = products.find((product) => product.name == value)
+      return push(`/product/${product?._id}`)
+    }
+  }
+
   return (
     <div className="flex w-full relative group focus-within:text-green-900">
-      <Combobox className="w-full" aria-labelledby="Search">
+      <Combobox onSelect={onSearch} className="w-full" aria-labelledby="Search">
         <ComboboxInput
           className="bg-gray-200 w-full p-2 rounded-sm focus:outline-none focus:ring-2 ring-green-700 ring-opacity-40"
           placeholder="Search for products..."
@@ -35,7 +43,7 @@ const Searchbar = (props: Props) => {
             timeoutFn(fuse.search(value).map((i) => i.item))
           }}
         />
-        <ComboboxPopover className="mt-1 py-1 bg-gray-50 border border-gray-200 rounded-md shadow-md">
+        <ComboboxPopover className="z-10 mt-1 py-1 bg-gray-50 border border-gray-200 rounded-md shadow-md">
           <ComboboxList className="divide-y space-y-1">
             {searchResults?.length === 0 ? (
               <ComboboxOption
@@ -44,10 +52,14 @@ const Searchbar = (props: Props) => {
               />
             ) : (
               searchResults?.map((p) => (
-                <ComboboxOption
-                  key={`${p.name}__prod__option`}
-                  value={p.name}
-                />
+                <NextLink href={`product/${p?._id}`}>
+                  <a>
+                    <ComboboxOption
+                      key={`${p.name}__prod__option`}
+                      value={p.name}
+                    />
+                  </a>
+                </NextLink>
               ))
             )}
           </ComboboxList>

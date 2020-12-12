@@ -42,7 +42,7 @@ export default function Layout({ children }: Props): ReactElement {
           {modalView === "SIGNUP_VIEW" && <SignupModal close={closeModal} />}
         </DialogContent>
       </DialogOverlay>
-      <main className="page-fit">{children}</main>
+      <main className="min-h-page bg-green-50">{children}</main>
       <Footer locale={locale} />
     </div>
   )
