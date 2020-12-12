@@ -36,7 +36,7 @@ export default function Layout({ children }: Props): ReactElement {
       >
         <DialogContent
           aria-label="Log In Form"
-          className="absolute space-y-8 top-1/3 left-1/2 -mt-28 -ml-44 w-96 flex py-10 px-10 flex-col bg-white justify-center items-center"
+          className="absolute space-y-4 top-1/4 left-1/2 -mt-28 -ml-44 w-96 flex py-10 px-10 flex-col bg-white justify-center items-center"
         >
           {modalView === "LOGIN_VIEW" && <LoginModal close={closeModal} />}
           {modalView === "SIGNUP_VIEW" && <SignupModal close={closeModal} />}
