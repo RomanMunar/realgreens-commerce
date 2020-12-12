@@ -15,6 +15,12 @@ module.exports = {
       zIndex: {
         1: "1",
       },
+      minHeight: {
+        page: "calc(100vh - 68px)",
+      },
+      maxHeight: {
+        page: "calc(100vh - 68px)",
+      },
     },
   },
   variants: {
