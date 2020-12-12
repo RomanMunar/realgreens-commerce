@@ -16,31 +16,36 @@ const Navbar = () => {
       <div className="flex item-center justify-between">
         <div className="flex item-center">
           <NextLink href="/">
-            <a className="pt-2 flex text-green-800 item-center">
+            <a className="pt-1 flex text-green-800 item-center">
               <Logo className="mr-1 mt-1 h-6 w-6" />
               <h1 className="text-2xl font-medium">RealGreen</h1>
             </a>
           </NextLink>
           <div className="hidden md:block">
-            <ul className="h-full flex items-center ml-4 divide-x">
+            <ul className="h-full flex items-center ml-4 space-x-1 divide-x">
               {Categories.map((c) => (
-                <li key={`${c}_nav-item`}>
-                  <NextLink href={`/search?category=${c}`}>
-                    <a className="flex flex-col items-center">
-                      <Button size="sm" variant="link">
+                <NextLink href={`/search?category=${c}`}>
+                  <a className="flex flex-col items-center">
+                    <li key={`${c}_nav-item`}>
+                      <Button
+                        className="block"
+                        as="h3"
+                        size="sm"
+                        variant="link"
+                      >
                         {c}
                       </Button>
                       <div
                         className={cx(
-                          "border w-2/3",
+                          "border mx-auto w-2/3",
                           category === c
                             ? "border-green-500"
                             : "border-transparent"
                         )}
                       />
-                    </a>
-                  </NextLink>
-                </li>
+                    </li>
+                  </a>
+                </NextLink>
               ))}
             </ul>
           </div>

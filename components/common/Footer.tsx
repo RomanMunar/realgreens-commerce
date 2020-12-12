@@ -19,17 +19,45 @@ const Footer = ({ locale }: Props) => {
         </div>
         <div>
           <ul className="space-y-1 text-green-900 font-medium">
-            <li className="cursor-pointer">Home</li>
-            <li className="cursor-pointer">Contact</li>
-            <li className="cursor-pointer">Blog</li>
-            <li className="cursor-pointer">About</li>
+            <NextLink href="/">
+              <a>
+                <li className="cursor-pointer">Home</li>
+              </a>
+            </NextLink>
+            <NextLink href="/contact">
+              <a>
+                <li className="cursor-pointer">Contact</li>
+              </a>
+            </NextLink>
+            <NextLink href="/blog">
+              <a>
+                <li className="cursor-pointer">Blog</li>
+              </a>
+            </NextLink>
+            <NextLink href="/about">
+              <a>
+                <li className="cursor-pointer">About</li>
+              </a>
+            </NextLink>
           </ul>
         </div>
         <div>
           <ul className="space-y-1 text-green-900 font-medium">
-            <li className="cursor-pointer">Terms of Use</li>
-            <li className="cursor-pointer">Shipping & Returns</li>
-            <li className="cursor-pointer">Privacy Policy</li>
+            <NextLink href="/about#terms-of-Use">
+              <a>
+                <li className="cursor-pointer">Terms of Use</li>
+              </a>
+            </NextLink>
+            <NextLink href="/about#Shipping-&-Returns">
+              <a>
+                <li className="cursor-pointer">Shipping & Returns</li>
+              </a>
+            </NextLink>
+            <NextLink href="/about#Privacy-Policy">
+              <a>
+                <li className="cursor-pointer">Privacy Policy</li>
+              </a>
+            </NextLink>
           </ul>
         </div>
         <div className="col-span-2 justify-self-end">
