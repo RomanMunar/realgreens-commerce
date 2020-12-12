@@ -14,7 +14,10 @@ const RightNav = ({ locale, invert = false }: Props) => {
   return (
     <div className="flex items-start justify-between space-x-3">
       <div className="flex items-center space-x-4">
-        <Popover invert={invert} text={locale === "en-PH" ? "🇵🇭 en-PH" : "🇬🇧 en-US"}>
+        <Popover
+          invert={invert}
+          text={locale === "en-PH" ? "🇵🇭 en-PH" : "🇬🇧 en-US"}
+        >
           <span className="whitespace-nowrap mx-2 text-xs text-gray-800">
             {locale === "en-PH" ? "🇬🇧 en-US" : "🇵🇭 en-PH"}
           </span>
@@ -48,6 +51,7 @@ const RightNav = ({ locale, invert = false }: Props) => {
           </button>
         </NextLink>
         <button
+          className="inline-flex"
           onClick={() => {
             setModalView("LOGIN_VIEW")
             openModal()
