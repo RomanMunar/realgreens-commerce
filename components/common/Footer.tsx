@@ -7,7 +7,7 @@ interface Props {
 
 const Footer = ({ locale }: Props) => {
   return (
-    <div className="bg-yellow-100 w-full divide-y-4  px-20 py-10">
+    <footer className="bg-yellow-100 w-full divide-y-4  px-20 py-10">
       <div className="space-y-2 divide-y-2 sm:divide-y-0 mb-5 sm:grid sm:grid-cols-4 lg:grid-cols-5">
         <div>
           <NextLink href="/">
@@ -74,7 +74,7 @@ const Footer = ({ locale }: Props) => {
         <p>© 2020 REALGREEN, Inc. All rights reserved.</p>
         <p>Crafted By, ROMAN MUNAR</p>
       </div>
-    </div>
+    </footer>
   )
 }
 

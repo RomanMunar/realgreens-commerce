@@ -70,13 +70,13 @@ const Product = ({
           ],
         }}
       />
-      <div className="p-10 lg:p-20 md:flex space-x-4 lg:space-x-10">
+      <div className="p-0 lg:p-20 md:flex space-x-4 lg:space-x-10">
         <div className="w-100 overflow-auto relative">
           <ProductSlider images={product.images} />
         </div>
         <div className="my-10 md:my-0 flex-1 relative">
           <div className="mb-5">
-            <h3 className="font-bold text-2xl capitalize">{product.name}</h3>
+            <h3 className="font-bold text-5xl capitalize">{product.name}</h3>
             <h3 className="font-medium text-xl">₱{product.price}/kg</h3>
             <h3 className="font-medium text-gray-600">Add ₱50 for container</h3>
           </div>

@@ -1,12 +1,20 @@
 {
   "title": "Real Greens Groceries | Powered by Next.js",
-  "titleTemplate": "%s - ACME Storefront",
-  "description": "Next.js Commerce -> https://www.nextjs.org/commerce",
+  "titleTemplate": "%s - R.G Storefront",
+  "description": "Real Greens Commerce - provides a sustainable and healthy market for farmers and consumers",
   "openGraph": {
     "type": "website",
     "locale": "en_IE",
-    "url": "https://nextjs.org/commerce",
-    "site_name": "Next.js Commerce"
+    "url": "https://realcommerce.vercel.app",
+    "site_name": "Real Greens Commerce",
+    "images": [
+      {
+        "url": "https://realcommerce.vercel.app/website-image.png",
+        "width": 1350,
+        "height": 678,
+        "alt": "Real Greens' Website Image"
+      }
+    ]
   },
   "twitter": {
     "handle": "@nextjs",
