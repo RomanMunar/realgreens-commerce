@@ -1,16 +1,18 @@
+import cx from "clsx"
+import { User } from "next-auth"
+import NextLink from "next/link"
 import { useUI } from "../../lib/useUI"
 import { AvatarButton, Popover } from "../core"
-import NextLink from "next/link"
-import { Close, Cart, ShoppingBag } from "../icons"
-import cx from "clsx"
+import { Cart, ShoppingBag } from "../icons"
+
 interface Props {
   invert?: boolean
   locale?: string
+  user?: User | null
 }
 
-const RightNav = ({ locale, invert = false }: Props) => {
+const RightNav = ({ locale, invert = false, user }: Props) => {
   const { toggleSidebar, setModalView, openModal } = useUI()
-
   return (
     <div className="flex items-start justify-between space-x-3">
       <div className="flex items-center space-x-4">
@@ -52,8 +54,9 @@ const RightNav = ({ locale, invert = false }: Props) => {
           </button>
         </NextLink>
         <AvatarButton
+          img={user?.image}
           onClick={() => {
-            setModalView("LOGIN_VIEW")
+            user ? setModalView("PROFILE_VIEW") : setModalView("LOGIN_VIEW")
             openModal()
           }}
         />
