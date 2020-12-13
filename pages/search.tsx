@@ -1,10 +1,10 @@
+import { useRouter } from "next/router"
 import React from "react"
 import { Layout } from "../components"
 import ProductsGrid from "../components/common/ProductsGrid"
+import { ICatergory } from "../interfaces/Category"
+import { Vendor } from "../interfaces/Vendors"
 import products from "../lib/hooks/mockDatas/products"
-import { useRouter } from "next/router"
-import { Categories, ICatergory } from "../interfaces/Category"
-import { Vendor, Vendors } from "../interfaces/Vendors"
 
 const Search = () => {
   const router = useRouter()

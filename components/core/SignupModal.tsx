@@ -1,13 +1,13 @@
-import { Close, Facebook, Google, Logo, Twitter } from "../icons"
 import { Button } from "."
 import { useUI } from "../../lib/useUI"
+import { Close, Facebook, Google, Logo, Twitter } from "../icons"
 
 interface Props {
   close: () => void
   signIn: () => void
 }
 
-const SignupModal = ({ close, signIn }: Props) => {
+const SignupModal = ({ close }: Props) => {
   const { setModalView } = useUI()
 
   return (

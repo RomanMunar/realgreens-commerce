@@ -4,7 +4,7 @@ import { Close, Inbox } from "../icons"
 import RightNav from "./RightNav"
 
 const CartSidebar = () => {
-  const { closeSidebar, displaySidebar } = useUI()
+  const { closeSidebar } = useUI()
 
   return (
     <DialogContent
