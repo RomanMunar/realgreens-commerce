@@ -14,42 +14,24 @@ export default function Home() {
           Our Top Sellers
         </h2>
       </div>
-      <div className="lg:max-h-page min-h-page grid md:grid-cols-3 grid-cols-1 relative sm:px-16 mx-auto bg-blue-200">
-        <div className="relative md:col-span-2 md:row-span-2">
-          <ProductCard
-            idx={0}
-            variant="fixed"
-            width={815}
-            height={610}
-            product={products[0]}
-          />
+      <div className="min-h-page grid md:grid-cols-3 grid-cols-1 relative lg:px-16 mx-auto bg-blue-200">
+        <div className="relative h-80 md:h-full md:col-span-2 md:row-span-2">
+          <ProductCard idx={0} product={products[0]} />
         </div>
         <div
-          className="bg-cover bg-center h-96 md:h-56 lg:h-full relative"
+          className="bg-cover bg-center h-96 lg:h-full relative"
           aria-label="Second top seller"
         >
-          <ProductCard
-            idx={1}
-            variant="fixed"
-            width={407.6}
-            height={305}
-            product={products[1]}
-          />
+          <ProductCard idx={1} product={products[1]} />
         </div>
         <div
-          className="bg-cover bg-center h-96 md:h-56 lg:h-full relative"
+          className="bg-cover bg-center h-96 lg:h-full relative"
           aria-label="Third top seller"
         >
-          <ProductCard
-            idx={2}
-            variant="fixed"
-            width={407.6}
-            height={305}
-            product={products[2]}
-          />
+          <ProductCard idx={2} product={products[2]} />
         </div>
       </div>
-      <div className="w-full space-y-3 bg-green-600 p-20">
+      <div className="w-full space-y-3 bg-green-600 p-10 lg:p-20">
         <h2 className="text-white text-7xl font-bold mb-5">
           <span className="inline-block text-8xl bg-white text-green-600 p-2 rounded-md">
             Fresh

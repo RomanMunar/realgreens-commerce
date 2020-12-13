@@ -36,7 +36,7 @@ const ProductCard = ({
             width: variant === "fixed" ? width : "",
           }}
           className={cx(
-            "h-56",
+            "h-80",
             colorIdx === 0 && "bg-red-200",
             colorIdx === 1 && "bg-blue-200",
             colorIdx === 2 && "bg-yellow-300"
@@ -45,7 +45,7 @@ const ProductCard = ({
           {variant === "fill" ? (
             <Image
               layout="fill"
-              className="w-full min-h-56"
+              className="w-full min-h-80"
               quality={85}
               src={`/products/${product.image}.jpg`}
               alt={`${product.image}`}
