@@ -15,7 +15,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean
   block?: boolean
   children?: ReactNode
-  onClick?: () => void
+  onClick?: (e: any) => void
   size?: "sm" | "md" | "lg"
 }
 
