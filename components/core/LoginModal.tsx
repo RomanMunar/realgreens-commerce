@@ -46,59 +46,39 @@ const LoginModal = ({ loading, close, signIn }: Props) => {
           Please wait while we are logging you in :)
         </div>
       )}
-      <form
-        method="POST"
-        action="/api/auth/signin/email"
-        className="flex flex-col w-full px-5 items-center space-y-2"
-      >
-        {csrfToken && (
-          <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
-        )}
-        <label htmlFor="email">Email Address</label>
-        <input
-          placeholder="Email Address"
-          className="border focus:ring-green-500 focus:ring-offset-2 border-gray-400 w-full pl-3 py-2 rounded-sm focus:outline-none focus:ring-2 ring-green-700 ring-opacity-40"
-          id="email"
-          name="email"
-          type="text"
-        />
-        <Button type="submit" block>
-          Sign in with Email
-        </Button>
-      </form>
-      <div className="w-full flex px-5  flex-row items-center justify-between">
-        <div className="border w-2/5 border-gray-400"></div>
-        <span className="text-gray-600">or</span>
-        <div className="border w-2/5 border-gray-400"></div>
-      </div>
-      <div className="w-full px-5">
-        <h5 className="text-center text-gray-700">Sign in with</h5>
-        <div className="flex justify-center items-center">
+      <div className="w-full bg-green-100 rounded-md p-5">
+        <h5 className="text-center text-xl text-gray-700">Sign in with</h5>
+        <div className="flex flex-col justify-center items-center">
           <Button
             onClick={() => signIn("google")}
             block
-            size="sm"
-            variant="link"
+            size="md"
+            variant="secondary"
           >
-            <div className="inline-block -ml-3 mr-3 bg-green-200 rounded-md p-1">
-              <Google className="w-4 h-4" />
+            <div className="inline-block -ml-3 mr-3 bg-white rounded-md p-1">
+              <Google className="w-6 h-6" />
             </div>
             Google
           </Button>
-          <Button
-            onClick={() => signIn("facebook")}
-            block
-            size="sm"
-            variant="link"
-          >
-            <div className="inline-block -ml-3 mr-3 bg-green-200 rounded-md p-1">
-              <Facebook className="w-4 h-4" />
-            </div>
-            Facebook
-          </Button>
         </div>
-      </div>
+        <div className="w-full flex px-5  flex-row items-center justify-between">
+          <div className="border w-2/5 border-gray-400"></div>
+          <span className="text-gray-600">or</span>
+          <div className="border w-2/5 border-gray-400"></div>
+        </div>
 
+        <Button
+          onClick={() => signIn("facebook")}
+          block
+          size="md"
+          variant="secondary"
+        >
+          <div className="inline-block -mx-3 mr-3 bg-white rounded-md p-1">
+            <Facebook className="w-6 h-6" />
+          </div>
+          <span className="-mr-5">Facebook</span>
+        </Button>
+      </div>
       <div className="w-full text-xs px-5 mx-auto">
         <span className="text-gray-600">Don't have an account?</span>{" "}
         <button
