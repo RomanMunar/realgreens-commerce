@@ -31,12 +31,15 @@ export default function Home() {
           <ProductCard eager idx={2} product={products[2]} />
         </div>
       </div>
-      <div className="w-full space-y-3 bg-green-600 p-10 lg:p-20">
-        <h2 className="text-white text-7xl font-bold mb-5">
+      <div className="w-full space-y-3 bg-green-600 p-5 sm:p-10 lg:p-20">
+        <h2 className="text-white font-bold mb-5">
           <span className="inline-block text-8xl bg-white text-green-600 p-2 rounded-md">
             Fresh
           </span>{" "}
-          as how it should be.
+          <span className="block md:inline text-5xl md:text-6l">
+            {" "}
+            as how it should be.
+          </span>
         </h2>
         <div className="flex">
           <p className="text-white text-xl font-medium">
