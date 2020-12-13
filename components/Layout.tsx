@@ -21,7 +21,7 @@ const Layout = ({ children }: Props): ReactElement => {
     closeModal,
   } = useUI()
 
-  const [session, loading] = useSession()
+  const [session] = useSession()
   const [user, setUser] = useState<User | null>(null)
   useEffect(() => {
     if (session) {
@@ -52,10 +52,10 @@ const Layout = ({ children }: Props): ReactElement => {
       >
         <DialogContent
           aria-label="Log In Form"
-          className="absolute space-y-4 top-1/4 left-1/2 -mt-28 -ml-44 w-96 flex py-10 px-10 flex-col bg-white justify-center items-center"
+          className="absolute space-y-4 top-1/4 left-1/2 -mt-28 -ml-48 w-96 flex py-10 px-10 flex-col bg-white justify-center items-center"
         >
           {modalView === "LOGIN_VIEW" && (
-            <LoginModal loading={loading} signIn={signIn} close={closeModal} />
+            <LoginModal signIn={signIn} close={closeModal} />
           )}
           {modalView === "SIGNUP_VIEW" && (
             <SignupModal signIn={signIn} close={closeModal} />

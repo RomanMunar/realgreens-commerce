@@ -7,10 +7,9 @@ import { Close, Facebook, Google, Logo } from "../icons"
 interface Props {
   close: () => void
   signIn: (provider_id: string) => void
-  loading?: boolean
 }
 
-const LoginModal = ({ loading, close, signIn }: Props) => {
+const LoginModal = ({ close, signIn }: Props) => {
   const { setModalView } = useUI()
   const [csrfToken, setCsrfToken] = useState<string | null>(null)
 
@@ -41,11 +40,6 @@ const LoginModal = ({ loading, close, signIn }: Props) => {
           <h1 className="text-4xl pt-2 font-medium">RealGreen</h1>
         </div>
       </header>
-      {loading && (
-        <div className="px-5 text-center">
-          Please wait while we are logging you in :)
-        </div>
-      )}
       <div className="w-full bg-green-100 rounded-md p-5">
         <h5 className="text-center text-xl text-gray-700">Sign in with</h5>
         <div className="flex flex-col justify-center items-center">
