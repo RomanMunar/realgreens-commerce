@@ -4,9 +4,10 @@ import { useUI } from "../../lib/useUI"
 
 interface Props {
   close: () => void
+  signIn: () => void
 }
 
-const SignupModal = ({ close }: Props) => {
+const SignupModal = ({ close, signIn }: Props) => {
   const { setModalView } = useUI()
 
   return (

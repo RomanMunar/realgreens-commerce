@@ -9,7 +9,7 @@ import products from "../lib/hooks/mockDatas/products"
 export default function Home() {
   return (
     <div className="relative">
-      <div className="z-1 absolute top-1 w-full sm:top-5 text-center md:text-left md:left-20">
+      <div className="z-1 absolute top-1 sm:top-5 text-center md:text-left md:left-20">
         <h2 className="underline text-5xl lg:text-7xl font-black text-white tracking-wide">
           Our Top Sellers
         </h2>
