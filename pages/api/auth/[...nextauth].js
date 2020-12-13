@@ -27,6 +27,9 @@ const options = {
     updateAge: 24 * 60 * 60, // 24 hours
   },
 
+  // JSON Web tokens are only used for sessions if the `jwt: true` session
+  // option is set - or by default if no database is specified.
+  // https://next-auth.js.org/configuration/options#jwt
   jwt: {
     // A secret to use for key generation (you should set this explicitly)
     // secret: 'INp8IvdIyeMcoGAgFGoA61DdBglwwSqnXJZkgz8PSnw',
