@@ -46,15 +46,25 @@ const LoginModal = ({ loading, close, signIn }: Props) => {
           Please wait while we are logging you in :)
         </div>
       )}
-      <form method="post" action="/api/auth/signin/email">
+      <form
+        method="POST"
+        action="/api/auth/signin/email"
+        className="flex flex-col w-full px-5 items-center space-y-2"
+      >
         {csrfToken && (
-          <input name="csrfToken" type="hidden" value={csrfToken} />
+          <input name="csrfToken" type="hidden" defaultValue={csrfToken} />
         )}
-        <label>
-          Email address
-          <input type="text" id="email" name="email" />
-        </label>
-        <button type="submit">Sign in with Email</button>
+        <label htmlFor="email">Email Address</label>
+        <input
+          placeholder="Email Address"
+          className="border focus:ring-green-500 focus:ring-offset-2 border-gray-400 w-full pl-3 py-2 rounded-sm focus:outline-none focus:ring-2 ring-green-700 ring-opacity-40"
+          id="email"
+          name="email"
+          type="text"
+        />
+        <Button type="submit" block>
+          Sign in with Email
+        </Button>
       </form>
       <div className="w-full flex px-5  flex-row items-center justify-between">
         <div className="border w-2/5 border-gray-400"></div>
