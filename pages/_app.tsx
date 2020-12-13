@@ -20,15 +20,15 @@ function MyApp({ Component, pageProps }: AppProps) {
             // contact the server to sync the session state. Value in seconds.
             // e.g.
             // * 0  - Disabled (always use cache value)
-            // * 60 - Sync session state with server if it's older than 60 seconds
-            clientMaxAge: 0,
+            // * 180 - Sync session state with server if it's older than 180 seconds
+            clientMaxAge: 180,
             // Keep Alive tells windows / tabs that are signed in to keep sending
             // a keep alive request (which extends the current session expiry) to
             // prevent sessions in open windows from expiring. Value in seconds.
             //
             // Note: If a session has expired when keep alive is triggered, all open
             // windows / tabs will be updated to reflect the user is signed out.
-            keepAlive: 0,
+            // keepAlive: 0,
           }}
           session={pageProps.session}
         >

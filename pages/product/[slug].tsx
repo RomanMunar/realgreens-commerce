@@ -70,11 +70,11 @@ const Product = ({
           ],
         }}
       />
-      <div className="pt-10 lg:p-20 md:flex space-x-4 lg:space-x-10">
-        <div className="w-full sm:w-100 overflow-auto relative">
+      <div className="pt-10 lg:p-20 md:flex sm:space-x-4 lg:space-x-10">
+        <div className="w-full mx-auto sm:w-100 overflow-auto relative">
           <ProductSlider images={product.images} />
         </div>
-        <div className="py-10 md:py-0 flex-1 relative">
+        <div className="py-10 px-4 md:py-0 flex-1 relative">
           <div className="mb-5">
             <h3 className="font-bold text-5xl capitalize">{product.name}</h3>
             <h3 className="font-medium text-xl">₱{product.price}/kg</h3>
@@ -82,7 +82,7 @@ const Product = ({
           </div>
           <h3 className="font-medium text-xl">Description</h3>
           <p className="text-gray-700 lg:pr-20">{product.description}</p>
-          <div className="py-10 lg:p-0 lg:absolute lg:bottom-0 lg:right-20 space-x-2 flex items-center flex-row">
+          <div className="py-10 lg:p-0 lg:absolute lg:bottom-0 lg:right-20 sm:space-x-2 flex flex-col sm:flex-row items-stretch">
             <Button variant="secondary">
               <Inbox className="w-6 h-6" /> Add to Wishlist
             </Button>

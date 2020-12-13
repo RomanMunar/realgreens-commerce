@@ -17,11 +17,11 @@ const Searchbar = () => {
   const [searchResults, setSearchResults] = useState<IProduct[]>([])
   const timeoutFn = (results: IProduct[]) => setSearchResults(results)
   const [isReady, cancel] = useDebounce(timeoutFn, 5000)
-  const { push } = useRouter()
+  const { replace } = useRouter()
   const onSearch = (value: string) => {
     if (value) {
       const product = products.find((product) => product.name == value)
-      return push(`/product/${product?._id}`)
+      return replace(`/product/${product?._id}`)
     }
   }
 
