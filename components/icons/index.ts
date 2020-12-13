@@ -1,6 +1,5 @@
 export { default as Loading } from "./Loading"
 export { default as Logo } from "./Logo"
-export { default as BadgeCheck } from "./BadgeCheck"
 export { default as Cart } from "./Cart"
 export { default as ShoppingBag } from "./ShoppingBag"
 export { default as Close } from "./Close"
