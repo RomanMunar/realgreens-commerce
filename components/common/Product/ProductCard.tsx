@@ -3,7 +3,6 @@ import { IProduct } from "../../../interfaces/Product"
 import { Heart } from "../../icons"
 import NextLink from "next/link"
 import cx from "clsx"
-import { getRandomColor } from "../../../lib/hooks"
 
 interface Props {
   product: IProduct
@@ -11,6 +10,7 @@ interface Props {
   width?: number
   height?: number
   skipTab?: boolean
+  idx: number
 }
 
 const ProductCard = ({
@@ -19,9 +19,10 @@ const ProductCard = ({
   variant = "fill",
   width,
   height,
+  idx,
   ...rest
 }: Props) => {
-  const bgColor = getRandomColor()
+  const colorIdx = idx % 3
 
   return (
     <NextLink {...rest} href={`/product/${product._id}`}>
@@ -34,7 +35,12 @@ const ProductCard = ({
             height: variant === "fixed" ? height : "",
             width: variant === "fixed" ? width : "",
           }}
-          className={cx("h-56", bgColor)}
+          className={cx(
+            "h-56",
+            colorIdx === 0 && "bg-blue-400",
+            colorIdx === 1 && "bg-pink-400",
+            colorIdx === 2 && "bg-yellow-300"
+          )}
         >
           {variant === "fill" ? (
             <Image

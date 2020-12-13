@@ -95,8 +95,12 @@ const ProductsGrid = ({ products, category, vendor }: Props) => {
           </div>
         </div>
         <div className="grid gap-4 w-full sm:grid-cols-2 md:grid-cols-3 flex-1">
-          {products.map((product) => (
-            <ProductCard key={`${product._id}-card`} product={product} />
+          {products.map((product, idx) => (
+            <ProductCard
+              idx={idx}
+              key={`${product._id}-card`}
+              product={product}
+            />
           ))}
         </div>
       </div>

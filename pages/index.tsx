@@ -17,6 +17,7 @@ export default function Home() {
       <div className="lg:max-h-page min-h-page grid md:grid-cols-3 grid-cols-1 relative sm:px-16 mx-auto bg-blue-200">
         <div className="relative md:col-span-2 md:row-span-2">
           <ProductCard
+            idx={0}
             variant="fixed"
             width={815}
             height={610}
@@ -28,6 +29,7 @@ export default function Home() {
           aria-label="Second top seller"
         >
           <ProductCard
+            idx={1}
             variant="fixed"
             width={407.6}
             height={305}
@@ -39,6 +41,7 @@ export default function Home() {
           aria-label="Third top seller"
         >
           <ProductCard
+            idx={2}
             variant="fixed"
             width={407.6}
             height={305}
@@ -70,8 +73,9 @@ export default function Home() {
       </div>
       <div className="lg:px-20 py-10 w-full bg-blue-200">
         <Marquee>
-          {products.map((product) => (
+          {products.map((product, idx) => (
             <ProductCard
+              idx={idx}
               skipTab
               key={`${product._id}`}
               product={product}
