@@ -21,6 +21,9 @@ module.exports = {
       maxHeight: {
         page: "calc(100vh - 68px)",
       },
+      width: {
+        100: "32rem",
+      },
     },
   },
   variants: {

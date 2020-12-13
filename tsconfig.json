@@ -19,5 +19,5 @@
     "allowJs": true
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx", "pages/api/auth/[...nextauth].js"]
+  "include": ["**/*.ts", "**/*.tsx"]
 }
