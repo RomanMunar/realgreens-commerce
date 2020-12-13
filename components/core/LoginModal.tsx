@@ -1,13 +1,28 @@
-import { useUI } from "../../lib/useUI"
-import { Close, Facebook, Google, Logo, Twitter } from "../icons"
+import { useState, useEffect } from "react"
+import { getCsrfToken } from "next-auth/client"
 import { Button } from "."
+import { useUI } from "../../lib/useUI"
+import { Close, Facebook, Google, Logo } from "../icons"
 
 interface Props {
   close: () => void
+  signIn: (provider_id: string) => void
+  loading?: boolean
 }
 
-const LoginModal = ({ close }: Props) => {
+const LoginModal = ({ loading, close, signIn }: Props) => {
   const { setModalView } = useUI()
+  const [csrfToken, setCsrfToken] = useState<string | null>(null)
+
+  useEffect(() => {
+    newToken()
+
+    async function newToken() {
+      if (csrfToken) return
+      const newCsrfToken = await getCsrfToken()
+      return setCsrfToken(newCsrfToken)
+    }
+  }, [csrfToken])
 
   return (
     <>
@@ -26,48 +41,54 @@ const LoginModal = ({ close }: Props) => {
           <h1 className="text-4xl pt-2 font-medium">RealGreen</h1>
         </div>
       </header>
-      <div className="flex flex-col w-full px-5 items-center space-y-2">
-        <div>
-          <label className="sr-only" htmlFor="username">
-            Username
-          </label>
-          <input
-            placeholder="Username"
-            className="border focus:ring-green-500 focus:ring-offset-2 border-gray-400 w-full pl-3 py-2 rounded-sm focus:outline-none focus:ring-2 ring-green-700 ring-opacity-40"
-            id="username"
-            type="text"
-          />
+      {loading && (
+        <div className="px-5 text-center">
+          Please wait while we are logging you in :)
         </div>
-        <div>
-          <label className="sr-only" htmlFor="password">
-            Password
-          </label>
-          <input
-            placeholder="Password"
-            className="border border-gray-400 focus:ring-green-500 focus:ring-offset-2 w-full pl-3 py-2 rounded-sm focus:outline-none focus:ring-2 ring-green-700 ring-opacity-40"
-            id="password"
-            type="password"
-          />
-        </div>
-        <Button block>Login</Button>
-      </div>
+      )}
+      <form method="post" action="/api/auth/signin/email">
+        {csrfToken && (
+          <input name="csrfToken" type="hidden" value={csrfToken} />
+        )}
+        <label>
+          Email address
+          <input type="text" id="email" name="email" />
+        </label>
+        <button type="submit">Sign in with Email</button>
+      </form>
       <div className="w-full flex px-5  flex-row items-center justify-between">
         <div className="border w-2/5 border-gray-400"></div>
         <span className="text-gray-600">or</span>
         <div className="border w-2/5 border-gray-400"></div>
       </div>
-      <div className="w-full px-5 space-y-1 flex flex-col justify-around items-center">
-        <Button block size="sm" variant="secondary">
-          <Twitter className="w-5 h-5 mr-3  rounded-md" /> Twitter
-        </Button>
-        <Button block size="sm" variant="secondary">
-          <Google className="w-5 h-5 mr-3 rounded-md" /> Google
-        </Button>
-        <Button block size="sm" variant="secondary">
-          <Facebook className="w-5 h-5 mr-3 rounded-md" />
-          <span className="-mr-5">Facebook</span>
-        </Button>
+      <div className="w-full px-5">
+        <h5 className="text-center text-gray-700">Sign in with</h5>
+        <div className="flex justify-center items-center">
+          <Button
+            onClick={() => signIn("google")}
+            block
+            size="sm"
+            variant="link"
+          >
+            <div className="inline-block -ml-3 mr-3 bg-green-200 rounded-md p-1">
+              <Google className="w-4 h-4" />
+            </div>
+            Google
+          </Button>
+          <Button
+            onClick={() => signIn("facebook")}
+            block
+            size="sm"
+            variant="link"
+          >
+            <div className="inline-block -ml-3 mr-3 bg-green-200 rounded-md p-1">
+              <Facebook className="w-4 h-4" />
+            </div>
+            Facebook
+          </Button>
+        </div>
       </div>
+
       <div className="w-full text-xs px-5 mx-auto">
         <span className="text-gray-600">Don't have an account?</span>{" "}
         <button
