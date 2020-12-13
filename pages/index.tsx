@@ -16,19 +16,19 @@ export default function Home() {
       </div>
       <div className="min-h-page grid md:grid-cols-3 grid-cols-1 relative lg:px-16 mx-auto bg-blue-200">
         <div className="relative h-80 md:h-full md:col-span-2 md:row-span-2">
-          <ProductCard idx={0} product={products[0]} />
+          <ProductCard eager idx={0} product={products[0]} />
         </div>
         <div
           className="bg-cover bg-center h-96 lg:h-full relative"
           aria-label="Second top seller"
         >
-          <ProductCard idx={1} product={products[1]} />
+          <ProductCard eager idx={1} product={products[1]} />
         </div>
         <div
           className="bg-cover bg-center h-96 lg:h-full relative"
           aria-label="Third top seller"
         >
-          <ProductCard idx={2} product={products[2]} />
+          <ProductCard eager idx={2} product={products[2]} />
         </div>
       </div>
       <div className="w-full space-y-3 bg-green-600 p-10 lg:p-20">

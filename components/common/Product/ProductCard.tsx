@@ -10,6 +10,7 @@ interface Props {
   width?: number
   height?: number
   skipTab?: boolean
+  eager?: boolean
   idx: number
 }
 
@@ -20,6 +21,7 @@ const ProductCard = ({
   width,
   height,
   idx,
+  eager,
   ...rest
 }: Props) => {
   const colorIdx = idx % 3
@@ -44,6 +46,7 @@ const ProductCard = ({
         >
           {variant === "fill" ? (
             <Image
+              loading={eager ? "eager" : "lazy"}
               layout="fill"
               className="w-full min-h-80"
               quality={85}
@@ -52,6 +55,7 @@ const ProductCard = ({
             />
           ) : (
             <Image
+              loading={eager ? "eager" : "lazy"}
               layout="fixed"
               width={width!}
               height={height!}
