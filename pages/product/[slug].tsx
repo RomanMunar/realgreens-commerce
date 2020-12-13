@@ -3,6 +3,7 @@ import {
   GetStaticPropsContext,
   InferGetStaticPropsType,
 } from "next"
+import { NextSeo } from "next-seo"
 import { Layout } from "../../components"
 import { ProductSlider } from "../../components/common/Product"
 import { Button } from "../../components/core"
@@ -51,28 +52,47 @@ const Product = ({
   }
 
   return (
-    <div className="p-10 lg:p-20 md:flex space-x-4 lg:space-x-10">
-      <div className="w-100 overflow-auto relative">
-        <ProductSlider images={product.images} />
-      </div>
-      <div className="my-10 md:my-0 flex-1 relative">
-        <div className="mb-5">
-          <h3 className="font-bold text-2xl capitalize">{product.name}</h3>
-          <h3 className="font-medium text-xl">₱{product.price}/kg</h3>
-          <h3 className="font-medium text-gray-600">Add ₱50 for container</h3>
+    <>
+      <NextSeo
+        title={product.name}
+        description={product.description}
+        openGraph={{
+          type: "website",
+          title: product.name,
+          description: product.description,
+          images: [
+            {
+              url: product.image,
+              width: 800,
+              height: 600,
+              alt: product.name,
+            },
+          ],
+        }}
+      />
+      <div className="p-10 lg:p-20 md:flex space-x-4 lg:space-x-10">
+        <div className="w-100 overflow-auto relative">
+          <ProductSlider images={product.images} />
         </div>
-        <h3 className="font-medium text-xl">Description</h3>
-        <p className="text-gray-700 lg:pr-20">{product.description}</p>
-        <div className="absolute sm:-bottom-20 lg:bottom-0 lg:right-20 space-x-2 flex items-center flex-row">
-          <Button variant="secondary">
-            <Inbox className="w-6 h-6" /> Add to Wishlist
-          </Button>
-          <Button>
-            <Cart className="w-6 h-6" /> Add to Cart
-          </Button>
+        <div className="my-10 md:my-0 flex-1 relative">
+          <div className="mb-5">
+            <h3 className="font-bold text-2xl capitalize">{product.name}</h3>
+            <h3 className="font-medium text-xl">₱{product.price}/kg</h3>
+            <h3 className="font-medium text-gray-600">Add ₱50 for container</h3>
+          </div>
+          <h3 className="font-medium text-xl">Description</h3>
+          <p className="text-gray-700 lg:pr-20">{product.description}</p>
+          <div className="absolute sm:-bottom-20 lg:bottom-0 lg:right-20 space-x-2 flex items-center flex-row">
+            <Button variant="secondary">
+              <Inbox className="w-6 h-6" /> Add to Wishlist
+            </Button>
+            <Button>
+              <Cart className="w-6 h-6" /> Add to Cart
+            </Button>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }
 
