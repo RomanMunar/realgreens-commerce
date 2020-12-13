@@ -32,28 +32,32 @@ const ProductsGrid = ({ products, category, vendor }: Props) => {
         <h1 className="text-2xl font-medium text-gray-600 inline">Filters</h1>
         <div className="inline-flex items-center">
           <Popover text="Categories">
-            <ul className="flex flex-col items-center justify-center space-y-2">
+            <div className="flex flex-col space-y-1">
               {Categories.map((category) => (
-                <li
-                  key={`${category}`}
-                  className="whitespace-nowrap mx-2 text-xs text-gray-800"
-                >
-                  {category}
-                </li>
+                <NextLink href={`/category/${category}`}>
+                  <a
+                    key={`${category}`}
+                    className="capitalize whitespace-nowrap mx-2 text-xs text-gray-800"
+                  >
+                    {category}
+                  </a>
+                </NextLink>
               ))}
-            </ul>
+            </div>
           </Popover>
           <Popover text="Vendors">
-            <ul className="flex flex-col items-center justify-center space-y-2">
+            <div className="flex flex-col space-y-1">
               {Vendors.map((vendor) => (
-                <li
-                  key={`${vendor}`}
-                  className="whitespace-nowrap mx-2 text-xs text-gray-800"
-                >
-                  {vendor}
-                </li>
+                <NextLink href={`/vendor/${vendor}`}>
+                  <a
+                    key={`${vendor}`}
+                    className="capitalize whitespace-nowrap mx-2 text-xs text-gray-800"
+                  >
+                    {vendor}
+                  </a>
+                </NextLink>
               ))}
-            </ul>
+            </div>
           </Popover>
           <Filter className="w-6 h-6 ml-5 text-green-700 transform -rotate-90" />
         </div>
@@ -94,7 +98,7 @@ const ProductsGrid = ({ products, category, vendor }: Props) => {
             </ul>
           </div>
         </div>
-        <div className="grid gap-4 w-full sm:grid-cols-2 lg:grid-cols-3 flex-1">
+        <div className="grid gap-4 w-full md:grid-cols-2 lg:grid-cols-3 flex-1">
           {products.map((product, idx) => (
             <ProductCard
               idx={idx}
