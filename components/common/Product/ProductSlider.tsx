@@ -47,9 +47,9 @@ const ProductSlider = ({ images }: { images: string[] }) => {
         </button>
       </div>
       <div id="images">
-        <div className="bg-gray-400 max-w-96 block">
+        <div className="bg-gray-400 max-w-100 block">
           <img
-            className="sm:h-56 w-96 md:h-96"
+            className="sm:h-56 w-100 md:h-96"
             src={`/products/${images[currentSlide]}.jpg`}
             alt={images[currentSlide]}
           />

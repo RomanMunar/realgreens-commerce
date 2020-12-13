@@ -52,7 +52,7 @@ const Product = ({
 
   return (
     <div className="p-10 lg:p-20 md:flex space-x-4 lg:space-x-10">
-      <div className="w-96 overflow-auto relative">
+      <div className="w-100 overflow-auto relative">
         <ProductSlider images={product.images} />
       </div>
       <div className="my-10 md:my-0 flex-1 relative">
