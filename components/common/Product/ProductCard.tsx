@@ -37,8 +37,8 @@ const ProductCard = ({
           }}
           className={cx(
             "h-56",
-            colorIdx === 0 && "bg-blue-400",
-            colorIdx === 1 && "bg-pink-400",
+            colorIdx === 0 && "bg-red-200",
+            colorIdx === 1 && "bg-blue-200",
             colorIdx === 2 && "bg-yellow-300"
           )}
         >
