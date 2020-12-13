@@ -187,7 +187,7 @@ const products: IProduct[] = [
     ],
   },
   {
-    name: "Chicken Drumstick",
+    name: "Chicken Legs",
     price: 230,
     stock: 31,
     sold: 16,

@@ -8,8 +8,8 @@ interface Props {
 const Footer = ({ locale }: Props) => {
   return (
     <footer className="bg-yellow-100 w-full divide-y-4  px-20 py-10">
-      <div className="space-y-2 divide-y-2 sm:divide-y-0 mb-5 sm:grid sm:grid-cols-4 lg:grid-cols-5">
-        <div>
+      <div className="space-y-2 grid grid-cols-2 sm:divide-y-0 mb-5 sm:grid-cols-4 lg:grid-cols-5">
+        <div className="col-span-2 sm:col-span-1">
           <NextLink href="/">
             <button className="flex text-green-800 item-center">
               <Logo className="mr-1 mt-1 h-6 w-6" />
@@ -60,7 +60,7 @@ const Footer = ({ locale }: Props) => {
             </NextLink>
           </ul>
         </div>
-        <div className="col-span-2 justify-self-end">
+        <div className="col-span-2 sm:col-span-1 lg:col-span-2 justify-self-end">
           <div className="rounded-md mt-4 sm:mt-0 w-24 bg-gray-50">
             <Popover text={locale === "en-PH" ? "🇵🇭 en-PH" : "🇬🇧 en-US"}>
               <span className="whitespace-nowrap mx-2 text-xs text-gray-800">
@@ -70,7 +70,7 @@ const Footer = ({ locale }: Props) => {
           </div>
         </div>
       </div>
-      <div className="py-10 flex justify-between items-center">
+      <div className="py-10 flex flex-col space-y-2 md:flex-row justify-between items-center">
         <p>© 2020 REALGREEN, Inc. All rights reserved.</p>
         <p>Crafted By, ROMAN MUNAR</p>
       </div>

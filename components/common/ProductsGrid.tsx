@@ -18,7 +18,7 @@ const ProductsGrid = ({ products, category, vendor }: Props) => {
   return (
     <div className="pt-10">
       {(vendor || category) && (
-        <div className="px-20 w-full">
+        <div className="px-2 sm:px-10 lg:px-20 w-full">
           <h1 className="text-xl font-medium">
             Search Results for{" "}
             <span className="text-gray-800 capitalize text-2xl">
@@ -27,8 +27,8 @@ const ProductsGrid = ({ products, category, vendor }: Props) => {
           </h1>
         </div>
       )}
-      <div className="flex items-center justify-between sm:px-10 md:hidden mx-2">
-        {/* Sidebar becomes a filter menu in sm screens */}
+      {/* Sidebar becomes a filter menu in sm screens */}
+      <div className="flex items-center mt-2 justify-between px-2 sm:px-10 md:hidden">
         <h1 className="text-2xl font-medium text-gray-600 inline">Filters</h1>
         <div className="inline-flex items-center">
           <Popover text="Categories">
@@ -94,7 +94,7 @@ const ProductsGrid = ({ products, category, vendor }: Props) => {
             </ul>
           </div>
         </div>
-        <div className="grid gap-4 w-full sm:grid-cols-2 md:grid-cols-3 flex-1">
+        <div className="grid gap-4 w-full sm:grid-cols-2 lg:grid-cols-3 flex-1">
           {products.map((product, idx) => (
             <ProductCard
               idx={idx}
