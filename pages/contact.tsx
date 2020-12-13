@@ -7,16 +7,18 @@ const Contact = () => (
     <section id="introduction">
       <h3 className="text-xl font-medium"> 👋👋 Oh Hey There</h3>
       <p className="w-full ml-10">
-        Glad you have visited this site, hope this impressed you, the design is
+        Glad you have visited this site, hope it impressed you, the design is
         heavily inspired from this website called{" "}
         <a className="text-blue-600" href="https://demo.vercel.store/">
           Vercel's Store
         </a>{" "}
         which has a neutral and monotone feel, I tried to go for a more fresh
         and calm design so I opted for colors that are soft and lime-ish green
-        shades{" "}
+        shades.{" "}
         <NextLink href="/about">
-          <a className="text-blue-600">more info here</a>
+          <a className="block text-sm text-blue-600">
+            More about the project here
+          </a>
         </NextLink>
         , anyways enough rambling :). If you wanna know more feel free to
         contact me,{" "}
@@ -42,9 +44,9 @@ const Contact = () => (
         NodeJS &lt;3. I also am a big fan of UX design, really like making
         well-designed and purpose-driven websites.
       </p>
-      Like to know more? head over to my website
-      <span className="text-sm text-green-500">
-        <a href="https://www.romanmunar.me">romanmunar.me</a>
+      Like to know more? head over to my website at
+      <span className="text-md font-medium text-blue-600">
+        <a href="https://www.romanmunar.me"> https://www.romanmunar.me</a>
       </span>
     </section>
   </div>
