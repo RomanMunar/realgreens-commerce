@@ -17,14 +17,14 @@ const Navbar = ({ user, locale, currentPath }: Props) => {
   return (
     <nav className="bg-gray-100 px-4 py-3">
       <div className="flex item-center justify-between">
-        <div className="flex item-center">
+        <div className="flex justify-center item-center">
           <NextLink href="/">
             <a className="pt-1 flex text-green-800 item-center">
               <Logo className="mr-1 mt-1 h-6 w-6" />
-              <h1 className="text-2xl font-medium">RealGreen</h1>
+              <h1 className="block text-2xl font-medium">RealGreen</h1>
             </a>
           </NextLink>
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <ul className="h-full flex items-center ml-4 space-x-1 divide-x">
               {Categories.map((c) => (
                 <NextLink key={`${c}_nav-item`} href={`/search?category=${c}`}>
@@ -53,7 +53,7 @@ const Navbar = ({ user, locale, currentPath }: Props) => {
             </ul>
           </div>
         </div>
-        <div className="-ml-20 hidden sm:block">
+        <div className="md:-ml-20 hidden sm:block">
           <Searchbar />
         </div>
         <RightNav user={user} locale={locale} />

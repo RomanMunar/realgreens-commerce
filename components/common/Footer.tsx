@@ -7,7 +7,7 @@ interface Props {
 
 const Footer = ({ locale }: Props) => {
   return (
-    <footer className="bg-yellow-100 w-full divide-y-4  px-20 py-10">
+    <footer className="bg-yellow-100 w-full divide-y-4 px-5 lg:px-20 py-10">
       <div className="space-y-2 grid grid-cols-2 sm:divide-y-0 mb-5 sm:grid-cols-4 lg:grid-cols-5">
         <div className="col-span-2 sm:col-span-1">
           <NextLink href="/">
