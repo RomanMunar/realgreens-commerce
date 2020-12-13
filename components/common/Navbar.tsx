@@ -1,16 +1,19 @@
 import cx from "clsx"
 import NextLink from "next/link"
-import { useRouter } from "next/router"
 import { Searchbar } from "."
 import { Categories } from "../../interfaces/Category"
 import { Button } from "../core"
 import { Logo } from "../icons"
 import RightNav from "./RightNav"
+import { User } from "next-auth"
 
-const Navbar = () => {
-  const { query, locale } = useRouter()
-  const { category } = query
+interface Props {
+  user: User | null
+  locale?: string
+  currentPath?: string | string[]
+}
 
+const Navbar = ({ user, locale, currentPath }: Props) => {
   return (
     <nav className="bg-gray-100 px-4 py-3">
       <div className="flex item-center justify-between">
@@ -24,9 +27,9 @@ const Navbar = () => {
           <div className="hidden md:block">
             <ul className="h-full flex items-center ml-4 space-x-1 divide-x">
               {Categories.map((c) => (
-                <NextLink href={`/search?category=${c}`}>
+                <NextLink key={`${c}_nav-item`} href={`/search?category=${c}`}>
                   <a className="flex flex-col items-center">
-                    <li key={`${c}_nav-item`}>
+                    <li>
                       <Button
                         className="block"
                         as="h3"
@@ -38,7 +41,7 @@ const Navbar = () => {
                       <div
                         className={cx(
                           "border mx-auto w-2/3",
-                          category === c
+                          currentPath === c
                             ? "border-green-500"
                             : "border-transparent"
                         )}
@@ -53,7 +56,7 @@ const Navbar = () => {
         <div className="-ml-20 hidden sm:block">
           <Searchbar />
         </div>
-        <RightNav locale={locale} />
+        <RightNav user={user} locale={locale} />
       </div>
       <div className="sm:hidden mt-4 w-full flex-1">
         <Searchbar />
