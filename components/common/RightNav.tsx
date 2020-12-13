@@ -20,6 +20,7 @@ const RightNav = ({ locale, invert = false, user }: Props) => {
           aria-label="Locale picker"
           invert={invert}
           text={locale === "en-PH" ? "🇵🇭 en-PH" : "🇬🇧 en-US"}
+          className="hidden lg:flex"
         >
           <span className="whitespace-nowrap mx-2 text-xs text-gray-800">
             {locale === "en-PH" ? "🇬🇧 en-US" : "🇵🇭 en-PH"}

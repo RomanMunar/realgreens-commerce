@@ -11,17 +11,30 @@ interface Props {
   text?: string
   children: ReactNode
   invert?: boolean
+  className?: string
 }
 
-const LocalePopover = ({ invert, text, children, ...rest }: Props) => {
+const LocalePopover = ({
+  className,
+  invert,
+  text,
+  children,
+  ...rest
+}: Props) => {
   const [isLocalePopover, setIsLocalePopover] = useState(false)
   return (
     <div {...rest} className="relative">
       <Disclosure>
-        <DisclosureButton onClick={() => setIsLocalePopover((p) => !p)}>
-          <div className="flex w-full justify-center items-center text-lg">
+        <DisclosureButton
+          className={cx(
+            "w-full justify-center items-center text-lg",
+            className
+          )}
+          onClick={() => setIsLocalePopover((p) => !p)}
+        >
+          <div className="flex flex-row items-center py-2 mx-2">
             <span
-              className={cx("flex py-2 mx-2 text-xs", [
+              className={cx("flex text-xs", [
                 invert ? "text-white" : "text-gray-800",
               ])}
             >
@@ -29,7 +42,7 @@ const LocalePopover = ({ invert, text, children, ...rest }: Props) => {
             </span>
             <Chevron
               className={cx(
-                "w-4 h-4 transform transition-transform duration-300",
+                "ml-1 w-4 h-4 transform transition-transform duration-300",
                 [isLocalePopover && "rotate-180"]
               )}
             />
