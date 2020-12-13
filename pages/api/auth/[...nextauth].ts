@@ -1,19 +1,20 @@
-import NextAuth from "next-auth"
+import { NextApiRequest, NextApiResponse } from "next"
+import NextAuth, { InitOptions } from "next-auth"
 import Providers from "next-auth/providers"
 
-const options = {
+const options: InitOptions = {
   providers: [
     Providers.Facebook({
-      clientId: process.env.FACEBOOK_ID,
-      clientSecret: process.env.FACEBOOK_SECRET,
+      clientId: process.env.FACEBOOK_ID!,
+      clientSecret: process.env.FACEBOOK_SECRET!,
     }),
     Providers.GitHub({
-      clientId: process.env.GITHUB_ID,
-      clientSecret: process.env.GITHUB_SECRET,
+      clientId: process.env.GITHUB_ID!,
+      clientSecret: process.env.GITHUB_SECRET!,
     }),
     Providers.Google({
-      clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_SECRET,
+      clientId: process.env.GOOGLE_ID!,
+      clientSecret: process.env.GOOGLE_SECRET!,
     }),
   ],
   database: process.env.DATABASE_URL,
@@ -27,9 +28,6 @@ const options = {
     updateAge: 24 * 60 * 60, // 24 hours
   },
 
-  // JSON Web tokens are only used for sessions if the `jwt: true` session
-  // option is set - or by default if no database is specified.
-  // https://next-auth.js.org/configuration/options#jwt
   jwt: {
     // A secret to use for key generation (you should set this explicitly)
     // secret: 'INp8IvdIyeMcoGAgFGoA61DdBglwwSqnXJZkgz8PSnw',
@@ -71,4 +69,5 @@ const options = {
   debug: false,
 }
 
-export default (req, res) => NextAuth(req, res, options)
+export default (req: NextApiRequest, res: NextApiResponse) =>
+  NextAuth(req, res, options)
